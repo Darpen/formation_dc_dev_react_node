@@ -23,7 +23,6 @@ module.exports = {
     port: "3001"
 }
 ```
-8. Dans le répertoire du projet modifier `node_src/` pour lancer le serveur sur le port 3001
 9. lancer `npm start` dans `react_src/` et dans `node_src/`
 
 
