@@ -1,0 +1,30 @@
+.connexion{
+    display: flex;
+    justify-content: right;
+    background-image: url(../images/signin.jpg);
+    background-size: 60vw;
+    width: 100vw;
+    height: 100vh;
+}
+
+.connexion div:nth-child(1){
+    width: 40%;
+    margin-left: auto;
+    padding: 10% 30px;
+    background-color: #202020;
+    justify-content: center;
+}
+
+.connexion form:nth-child(1){
+    margin: auto;
+}
+
+.connexion form:nth-child(2){
+    margin: auto;
+    display: none;
+}
+
+.connexion form{
+
+    background-color: #202020;
+}

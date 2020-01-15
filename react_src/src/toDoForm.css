@@ -7,6 +7,8 @@ label {
 label span {
   width: 100%;
   font-size: 1.1em;
+  color: white;
+  position: relative;
 }
 label input,
 textarea,
@@ -16,6 +18,7 @@ select {
   outline: none;
   border: 1px solid lightgray;
   padding: 10px;
+  margin: 10px 0px;
 }
 form div {
   display: flex;
@@ -44,9 +47,21 @@ button.stepButton {
   opacity: 0.5;
 }
 .envoyer {
-  margin: 12px 0;
+  margin: 12px 10px;
   padding: 10px 20px;
   border: none;
-  background-color: cornflowerblue;
+  background-color: #FFAA00;
   border-radius: 5px;
+  color: white;
+}
+
+.bgtexte{
+  background-color: rgb(255, 170, 0);
+  height: 2px;
+  width: 136px;
+  display: inline-block;
+  position: absolute;
+  top: 19px;
+  opacity: 100%;
+  z-index: 0;
 }

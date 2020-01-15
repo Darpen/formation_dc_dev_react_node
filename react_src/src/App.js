@@ -1,7 +1,12 @@
 import React from "react";
 import "./style.css";
+import 'typeface-roboto';
+
 
 import Main from "./components/main";
+import Login from "./components/login";
+import Register from "./components/register";
+import Connexion from "./components/connexion";
 
 export default class App extends React.Component {
   constructor(props) {

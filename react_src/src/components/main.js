@@ -24,7 +24,9 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <Connexion users={this.state.users} addUser={this.addUser} />
+        <div className="connexion">
+          <Connexion users={this.state.users} addUser={this.addUser} />
+        </div>
         <ToDoList users={this.state.users} />
       </div>
     );

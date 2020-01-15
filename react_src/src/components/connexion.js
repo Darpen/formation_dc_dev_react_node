@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../toDo.css";
+import "../css/connection.css"
 
 import Login from "./login";
 import Register from "./register";

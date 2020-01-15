@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../login.css";
+import "../css/login.css";
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -35,7 +35,7 @@ class Login extends Component {
         }}
       >
         <label>
-          <span>Email</span>
+          <span><span className="bgtexte"></span>Email</span>
           <input
             type="text"
             name="name"
