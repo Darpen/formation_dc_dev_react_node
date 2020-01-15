@@ -1,0 +1,52 @@
+form {
+  width: 70%;
+}
+label {
+  margin-top: 24px;
+}
+label span {
+  width: 100%;
+  font-size: 1.1em;
+}
+label input,
+textarea,
+select {
+  border-radius: 5px;
+  width: 100%;
+  outline: none;
+  border: 1px solid lightgray;
+  padding: 10px;
+}
+form div {
+  display: flex;
+  justify-content: space-between;
+}
+form div label {
+  margin: 0;
+}
+.dateDebut {
+  width: 90%;
+}
+.step {
+  width: 80%;
+}
+.addStep {
+  width: 20%;
+}
+button.stepButton {
+  margin: 10px;
+  width: 80px;
+  height: 30px;
+  background-color: Transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  opacity: 0.5;
+}
+.envoyer {
+  margin: 12px 0;
+  padding: 10px 20px;
+  border: none;
+  background-color: cornflowerblue;
+  border-radius: 5px;
+}
