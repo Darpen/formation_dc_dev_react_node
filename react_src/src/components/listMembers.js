@@ -19,9 +19,8 @@ class ListMembers extends Component {
           {this.props.users.map((user, index) => {
             return (
               <li id={index}>
-                <span>
-                  {user.nom} {user.prenom}
-                </span>
+                <input type ="checkbox" id={index} name="user" />
+                <label for="user">{user.nom} {user.prenom}</label>
               </li>
             );
           })}

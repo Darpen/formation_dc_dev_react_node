@@ -7,13 +7,18 @@ import ListMembers from "./listMembers";
 class Admin extends Component {
   render() {
     return (
-      <div>
-        <ToDoForm
-          onPastilleSend={pastille => {
-            this.props.addPastille(pastille);
-          }}
-        />
-        <ListMembers users={this.props.users} />
+      <div className="adminRender">
+        <div>
+          <ToDoForm
+            onPastilleSend={pastille => {
+              this.props.addPastille(pastille);
+            }}
+          />
+        </div>
+        <div>
+          <ListMembers users={this.props.users} />
+        </div>
+        
       </div>
     );
   }
