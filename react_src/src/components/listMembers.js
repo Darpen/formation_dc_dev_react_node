@@ -1,9 +1,18 @@
 import React, { Component } from "react";
-import "../listMembers.css";
+import axios from 'axios';
+import "../css/listMembers.css";
 
 class ListMembers extends Component {
+
+  /* componentDidMount(){
+    axios.get(`https://localhost:3001`)
+      .then(response => {
+        console.log('get response: ', response);
+      })
+  } */
+
   render() {
-    console.log("list", this.props.users);
+    console.log("listMembers: ", this.props.users);
     return (
       <div>
         <ul>

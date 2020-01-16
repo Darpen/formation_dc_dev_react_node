@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import "../css/register.css";
+import axios from 'axios';
+import "../css/form.css";
 
 class Register extends Component {
   constructor(props) {
@@ -52,6 +53,13 @@ class Register extends Component {
       //j'ajoute l'utilisateur entier au state
       newState.user = user;
       console.log("listuser", newState.user);
+
+      //POST REQUEST
+      /* axios.post('http://localhost:3001', {...user})
+        .then(response=>{
+          console.log('post response: ', response);
+          console.log('post response data: ', response.data);
+        }) */
     }
 
     //let newUsers = [...this.state.users, user];
