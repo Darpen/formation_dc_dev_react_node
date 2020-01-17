@@ -6,28 +6,25 @@ class Login extends Component {
     this.state = {
       email: "",
       password: "",
-      users: []
+      errorLogin: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event) {
-    this.setState(state => {
-      let user = { email: state.email, password: state.password };
-      let newUsers = [...state.users, user];
-      this.setState({ users: newUsers });
-      console.log(user);
+     //controler si l'utilisateur existe dans la base de données
+    this.props.users.forEach(user => {
+      if((this.state.email === user.email) && (this.state.password === user.password)){
+        console.log('Utilisateur connecté');
+      }else{
+        this.setState({errorLogin: 'Email ou mot de passe incorrect'})
+      }
     });
-
-    alert("Utilisateur ajouté");
-    // this.props.onUserSend(this.state);
-
-    //controler si l'utilisateur existe dans la base de données
   }
 
   render() {
-    console.log('login: ', this.state.users);
+    console.log('login: ', this.props.users);
     return (
       <form
         onSubmit={e => {
@@ -61,6 +58,7 @@ class Login extends Component {
           />
         </label>
         <input className="envoyer" type="submit" value="Envoyer" />
+        <div>{this.state.errorLogin}</div>
       </form>
     );
   }

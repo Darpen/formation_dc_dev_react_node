@@ -20,14 +20,14 @@ class Main extends Component {
           nom:'Holcomb',
           prenom: 'Mark',
           email: 'mrak@email.com',
-          password: 'user'
+          password: 'mrak'
         },
         {
           id: 2,
           nom:'Mansoor',
           prenom: 'Misha',
           email: 'bulb@email.com',
-          password: 'user'
+          password: 'bulb'
         },
         {
           id: 3,
