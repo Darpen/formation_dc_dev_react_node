@@ -3,7 +3,6 @@ import "../css/connection.css"
 
 import Login from "./login";
 import Register from "./register";
-import ListMembers from "./listMembers";
 
 class Connexion extends Component {
   constructor(props) {

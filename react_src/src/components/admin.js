@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "../css/admin.css";
 
 import ToDoForm from "./toDoForm";
-import ListMembers from "./listMembers";
 
 class Admin extends Component {
   render() {

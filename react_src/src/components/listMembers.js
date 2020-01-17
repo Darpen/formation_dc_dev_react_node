@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios';
+/* import axios from 'axios'; */
 import "../css/listMembers.css";
 
 class ListMembers extends Component {
@@ -16,7 +16,7 @@ class ListMembers extends Component {
   removeOnUnchecked(e){
     this.state.addedUsers.forEach(user => {
       if(e.target.value === user ){
-        let unchecked = [... this.state.addedUsers, e.target.value]
+        let unchecked = [...this.state.addedUsers, e.target.value]
         unchecked.splice(e.target.value, 1);
         this.setState({ addedUsers : unchecked });
       }
@@ -43,11 +43,10 @@ class ListMembers extends Component {
                 <input 
                   type ="checkbox" 
                   id={index} name="user" 
-                  value={user.nom + ' ' + user.prenom} 
+                  value={user.prenom + ' ' + user.nom} 
                   onChange={e=>{
-                    console.log('checked ' ,e.target.checked)
                     if(e.target.checked === true){
-                      let add = [... this.state.addedUsers, e.target.value]
+                      let add = [...this.state.addedUsers, e.target.value]
                       this.setState({ addedUsers: add, addedUser: '' })
                     }else{
                       // J'enlève le user si la checkbox est décochée
@@ -58,7 +57,7 @@ class ListMembers extends Component {
                     this.props.onUserChecked(this.state.addedUsers);
                   }} 
                 />
-                <label for="user">{user.nom} {user.prenom}</label>
+                <label htmlFor="user">{user.prenom} {user.nom}</label>
               </li>
             );
           })}

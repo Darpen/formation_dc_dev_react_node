@@ -22,6 +22,8 @@ class Login extends Component {
 
     alert("Utilisateur ajouté");
     // this.props.onUserSend(this.state);
+
+    //controler si l'utilisateur existe dans la base de données
   }
 
   render() {
