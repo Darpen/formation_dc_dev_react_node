@@ -28,7 +28,6 @@ class Connexion extends Component {
             this.props.addUser(user);
           }}
         />
-        <ListMembers users={this.props.users} />
       </div>
     );
   }

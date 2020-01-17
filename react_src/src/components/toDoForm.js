@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../css/form.css";
+import ListMembers from "./listMembers";
 
 class ToDoForm extends Component {
   constructor(props) {
@@ -12,7 +13,8 @@ class ToDoForm extends Component {
       dateFin: "",
       files: "",
       step: "",
-      steps: []
+      steps: [],
+      addedUsers: []
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -154,6 +156,7 @@ class ToDoForm extends Component {
             );
           })}
         </ul>
+        <ListMembers users={this.props.users} />
         <input className="envoyer" type="submit" value="Envoyer" />
       </form>
     );
