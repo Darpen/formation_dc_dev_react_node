@@ -40,7 +40,12 @@ class ToDoForm extends Component {
     step.parentNode.removeChild(step);
   }
 
+  handleAddedUsers = (usersValue) => {
+    this.setState({ addedUsers: usersValue });
+  }
+
   render() {
+    console.log('todoform', this.state);
     return (
       <form
         onSubmit={e => {
@@ -156,7 +161,7 @@ class ToDoForm extends Component {
             );
           })}
         </ul>
-        <ListMembers users={this.props.users} />
+        <ListMembers users={this.props.users} onUserChecked={this.handleAddedUsers} />
         <input className="envoyer" type="submit" value="Envoyer" />
       </form>
     );
