@@ -1,24 +1,23 @@
 form {
-  width: 70%;
+  width: 100%;
 }
 label {
   margin-top: 24px;
 }
 label span {
+  display: block;
   width: 100%;
   font-size: 1.1em;
   color: white;
   position: relative;
 }
-label input,
-textarea,
-select {
+label input, label textarea, label select {
   border-radius: 5px;
-  width: 100%;
+  width: 92%;
   outline: none;
   border: 1px solid lightgray;
   padding: 10px;
-  margin: 10px 0px;
+  margin: 10px 0;
 }
 form div {
   display: flex;
@@ -46,11 +45,13 @@ button.stepButton {
   outline: none;
   opacity: 0.5;
 }
-.envoyer {
-  margin: 12px 10px;
-  padding: 10px 20px;
+.loginButton {
+  width: 100%;
+  padding: 15px 20px;
+  margin: 8px 0;
   border: none;
-  background-color: #FFAA00;
-  border-radius: 5px;
+  background-color: #b78726;
+  border-radius: 50px;
   color: white;
+  font-size: x-small;
 }

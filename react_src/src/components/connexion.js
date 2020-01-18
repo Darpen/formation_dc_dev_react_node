@@ -22,6 +22,7 @@ class Connexion extends Component {
     return (
       <div>
         <Login users={this.props.users} />
+        <button className="registerButton" type="button">CREER UN COMPTE</button>
         <Register
           onRegister={user => {
             this.props.addUser(user);

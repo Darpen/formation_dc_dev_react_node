@@ -61,7 +61,7 @@ class Login extends Component {
             }}
           />
         </label>
-        <input className="envoyer" type="submit" value="SE CONNECTER" />
+        <input className="loginButton" type="submit" value="SE CONNECTER" />
         {/* Affiche le message d'erreur si email ou mdp faux */}
         <div>{this.state.errorLogin}</div>
       </form>

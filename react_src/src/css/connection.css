@@ -2,20 +2,22 @@
     display: flex;
     width: 100vw;
     height: 100vh;
-}
-.connexion div:nth-child(1){
-    margin-left: auto;
-    padding: 10% 30px;
+    padding-top: 10%;
     background-color: #202020;
     justify-content: center;
 }
-.connexion form:nth-child(1){
-    margin: auto;
-}
-.connexion form:nth-child(2){
+.connexion form:nth-child(3){
     margin: auto;
     display: none;
 }
-.connexion form{
+.registerButton {
+    width: 100%;
+    padding: 15px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #b78726;
     background-color: #202020;
-}
+    border-radius: 50px;
+    color: white;
+    font-size: x-small;
+  }
