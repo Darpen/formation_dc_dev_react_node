@@ -1,3 +1,9 @@
+/*
+    Css qui modifie la disposition des components et les éléments 
+    appellés dans connexion.js.
+    Les formulaires ne doivent pas être modifié directement
+    dans ce css
+*/
 .connexion{
     display: flex;
     width: 100vw;

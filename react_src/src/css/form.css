@@ -23,9 +23,6 @@ form div {
   display: flex;
   justify-content: space-between;
 }
-form div label {
-  margin: 0;
-}
 .dateDebut {
   width: 90%;
 }
