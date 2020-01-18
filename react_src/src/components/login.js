@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import "../css/form.css";
+
+// route
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -34,7 +38,7 @@ class Login extends Component {
         }}
       >
         <label>
-          <span><span className="bgtexte"></span>Email</span>
+          <span>Email</span>
           <input
             type="text"
             name="name"
@@ -57,7 +61,8 @@ class Login extends Component {
             }}
           />
         </label>
-        <input className="envoyer" type="submit" value="Envoyer" />
+        <input className="envoyer" type="submit" value="SE CONNECTER" />
+        {/* Affiche le message d'erreur si email ou mdp faux */}
         <div>{this.state.errorLogin}</div>
       </form>
     );

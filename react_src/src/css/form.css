@@ -54,14 +54,3 @@ button.stepButton {
   border-radius: 5px;
   color: white;
 }
-
-.bgtexte{
-  background-color: rgb(255, 170, 0);
-  height: 2px;
-  width: 136px;
-  display: inline-block;
-  position: absolute;
-  top: 19px;
-  opacity: 100%;
-  z-index: 0;
-}

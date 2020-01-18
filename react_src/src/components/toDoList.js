@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Admin from "./admin";
+import Pastille from "./pastille";
 
 class ToDoList extends Component {
   constructor(props) {
@@ -9,13 +10,18 @@ class ToDoList extends Component {
     };
   }
 
+  displayToDo(e, id){
+    e.preventDefault();
+    console.log("display Pastille");
+  }
+
   render() {
     return (
       <div>
         <ul>
           {this.props.pastilles.map((tache, index) => {
             return (
-              <li id={index}>
+              <li onClick={(e) => this.displayToDo(e, tache.id)} id={index}>
                 <span>
                   {tache.title} {tache.label}
                 </span>
