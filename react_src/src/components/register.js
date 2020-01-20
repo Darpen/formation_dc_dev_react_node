@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios';
 import "../register.css";
 
 class Register extends Component {
@@ -16,6 +17,8 @@ class Register extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.getErrors = this.getErrors.bind(this);
   }
+
+  
 
   getErrors = () => {
     let errors = {};
@@ -52,6 +55,20 @@ class Register extends Component {
       //j'ajoute l'utilisateur entier au state
       newState.user = user;
       console.log("listuser", newState.user);
+      //AXIOS POST
+      axios.post('/connexion',{
+        nom: this.state.nom,
+        prenom: this.state.prenom,
+        email: this.state.email,
+        password: this.state.password,
+        repeatPassword: this.state.repeatPassword
+      })
+      .then(function(response){
+        console.log('first response',response);
+      })
+      .catch(function(response){
+        console.log('second response',response);
+      })
     }
 
     //let newUsers = [...this.state.users, user];
@@ -59,6 +76,8 @@ class Register extends Component {
 
     // J'envoie le state à connexion.js
     this.props.onRegister(this.state);
+
+    
   }
 
   render() {

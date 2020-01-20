@@ -1,36 +1,38 @@
 import React, { Component } from "react";
+import axios from 'axios';
 import "../toDo.css";
 
-import ToDo from "./toDo";
+import Pastille from "./pastille";
 import Admin from "./admin";
 
 class ToDoList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pastille: {
-        title: "",
-        label: "",
-        description: "",
-        dateDebut: "",
-        dateFin: "",
-        files: "",
-        step: "",
-        steps: []
-      }
+      pastilles: []
     };
   }
 
-  addPastille = pastille => {
-    let pastilles = [...this.state.pastille, pastille];
-    this.setState({ pastilles: pastilles });
-  };
+  getAllPastilles(){
+    return axios.get('/pastille/1');
+  }
 
   render() {
     return (
       <div>
-        <ToDo pastille={this.state.pastille} />
-        <Admin users={this.props.users} />
+        <ul>
+          {this.props.pastilles.map((tache, index) => {
+            return (
+              <li id={index}>
+                <span>
+                  {tache.title} {tache.label}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+        {/* <Pastille pastilles={this.state.pastilles} /> */}
+        <Admin users={this.props.users} addPastille={this.props.addPastille} />
       </div>
     );
   }

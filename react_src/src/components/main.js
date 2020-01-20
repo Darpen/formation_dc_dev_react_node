@@ -7,7 +7,8 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: []
+      users: [],
+      pastilles: []
     };
   }
 
@@ -21,11 +22,16 @@ class Main extends Component {
     this.setState({ users: users });
   };
 
+  addPastille = pastille => {
+    let pastilles = [...this.state.pastilles, pastille];
+    this.setState({ pastilles: pastilles });
+  }
+
   render() {
     return (
       <div>
         <Connexion users={this.state.users} addUser={this.addUser} />
-        <ToDoList users={this.state.users} />
+        <ToDoList users={this.state.users} addPastille={this.addPastille} pastilles={this.state.pastilles} />
       </div>
     );
   }
