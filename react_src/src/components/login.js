@@ -1,31 +1,34 @@
 import React, { Component } from "react";
-import "../login.css";
+import "../css/form.css";
+
+// route
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
       password: "",
-      users: []
+      errorLogin: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event) {
-    this.setState(state => {
-      let user = { email: state.email, password: state.password };
-      let newUsers = [...state.users, user];
-      this.setState({ users: newUsers });
-      console.log(user);
+     //controler si l'utilisateur existe dans la base de données
+    this.props.users.forEach(user => {
+      if((this.state.email === user.email) && (this.state.password === user.password)){
+        console.log('Utilisateur connecté');
+      }else{
+        this.setState({errorLogin: 'Email ou mot de passe incorrect'})
+      }
     });
-
-    alert("Utilisateur ajouté");
-    // this.props.onUserSend(this.state);
   }
 
   render() {
-    console.log(this.state.users);
+    console.log('login: ', this.props.users);
     return (
       <form
         onSubmit={e => {
@@ -58,7 +61,9 @@ class Login extends Component {
             }}
           />
         </label>
-        <input className="envoyer" type="submit" value="Envoyer" />
+        <input className="loginButton" type="submit" value="SE CONNECTER" />
+        {/* Affiche le message d'erreur si email ou mdp faux */}
+        <div>{this.state.errorLogin}</div>
       </form>
     );
   }

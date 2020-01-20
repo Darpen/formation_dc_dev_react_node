@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../pastille.css";
+import "../css/pastille.css";
 
 class Pastille extends Component {
   render() {

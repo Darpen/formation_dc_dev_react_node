@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import "../toDoForm.css";
+import "../css/form.css";
+import ListMembers from "./listMembers";
 
 class ToDoForm extends Component {
   constructor(props) {
@@ -12,7 +13,8 @@ class ToDoForm extends Component {
       dateFin: "",
       files: "",
       step: "",
-      steps: []
+      steps: [],
+      addedUsers: []
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -38,7 +40,12 @@ class ToDoForm extends Component {
     step.parentNode.removeChild(step);
   }
 
+  handleAddedUsers = (usersValue) => {
+    this.setState({ addedUsers: usersValue });
+  }
+
   render() {
+    console.log('todoform', this.state);
     return (
       <form
         onSubmit={e => {
@@ -154,6 +161,7 @@ class ToDoForm extends Component {
             );
           })}
         </ul>
+        <ListMembers users={this.props.users} onUserChecked={this.handleAddedUsers} />
         <input className="envoyer" type="submit" value="Envoyer" />
       </form>
     );

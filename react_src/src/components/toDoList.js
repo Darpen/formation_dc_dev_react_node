@@ -1,20 +1,17 @@
 import React, { Component } from "react";
-import axios from 'axios';
-import "../toDo.css";
-
-import Pastille from "./pastille";
 import Admin from "./admin";
 
 class ToDoList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pastilles: []
+      pastille: []
     };
   }
 
-  getAllPastilles(){
-    return axios.get('/pastille/1');
+  displayToDo(e, id){
+    e.preventDefault();
+    console.log("display Pastille");
   }
 
   render() {
@@ -23,15 +20,14 @@ class ToDoList extends Component {
         <ul>
           {this.props.pastilles.map((tache, index) => {
             return (
-              <li id={index}>
+              <li onClick={(e) => this.displayToDo(e, tache.id)} id={index} key={index}>
                 <span>
                   {tache.title} {tache.label}
                 </span>
               </li>
             );
-          })}
+            })}
         </ul>
-        {/* <Pastille pastilles={this.state.pastilles} /> */}
         <Admin users={this.props.users} addPastille={this.props.addPastille} />
       </div>
     );

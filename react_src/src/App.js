@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 
 import Main from "./components/main";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -20,12 +21,15 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <Main
-        onRegister={user => {
-          this.setState({ users: user });
-        }}
-        user={this.state.users}
-      />
+      <BrowserRouter>
+        <Main
+          onRegister={user => {
+            this.setState({ users: user });
+          }}
+          user={this.state.users}
+        />
+      </BrowserRouter>
+      
     );
   }
 }

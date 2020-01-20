@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import "../toDo.css";
+import "../css/connection.css"
 
 import Login from "./login";
 import Register from "./register";
-import ListMembers from "./listMembers";
 
 class Connexion extends Component {
   constructor(props) {
@@ -23,12 +22,12 @@ class Connexion extends Component {
     return (
       <div>
         <Login users={this.props.users} />
+        <button className="registerButton" type="button">CREER UN COMPTE</button>
         <Register
           onRegister={user => {
             this.props.addUser(user);
           }}
         />
-        <ListMembers users={this.props.users} />
       </div>
     );
   }
