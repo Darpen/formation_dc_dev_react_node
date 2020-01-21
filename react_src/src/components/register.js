@@ -18,8 +18,6 @@ class Register extends Component {
     this.getErrors = this.getErrors.bind(this);
   }
 
-  
-
   getErrors = () => {
     let errors = {};
     if (this.state.nom === "") {
@@ -61,7 +59,7 @@ class Register extends Component {
         .then(response=>{
           console.log('post response: ', response);
           console.log('post response data: ', response.data);
-        }) */
+      }) */
     }
 
     //let newUsers = [...this.state.users, user];

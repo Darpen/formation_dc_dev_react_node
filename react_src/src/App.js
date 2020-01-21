@@ -4,6 +4,8 @@ import "./style.css";
 import Main from "./components/main";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 
+import axios from 'axios';
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -17,6 +19,16 @@ export default class App extends React.Component {
         repeatPassword: ""
       }
     };
+  }
+
+  insertNewList = () => {
+    axios.post('http://localhost:3001/todo')
+    .then((res) => {
+      console.log('request successful', res);
+    })
+    .catch((err) => {
+      console.log('request failed', err);
+    })
   }
 
   render() {

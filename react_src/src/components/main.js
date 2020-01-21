@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import Connexion from "./connexion";
 import ToDoList from "./toDoList";
+import axios from 'axios';
 
 class Main extends Component {
   constructor(props) {
@@ -64,6 +65,19 @@ class Main extends Component {
         }
       ]
     };
+  }
+
+  componentDidMount(){
+    axios.get('/user')
+    .then(function (response) {
+      // handle success
+      this.setState({users: response.data})
+      console.log(response);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
   }
 
   setUsers = users => {

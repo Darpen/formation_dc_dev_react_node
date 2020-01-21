@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../css/form.css";
 import ListMembers from "./listMembers";
+import axios from "axios";
 
 class ToDoForm extends Component {
   constructor(props) {
@@ -28,6 +29,14 @@ class ToDoForm extends Component {
   handleSubmit(event) {
     alert("Formulaire envoyé");
     this.props.onPastilleSend(this.state);
+
+    axios.post('http://localhost:3001/todo', this.state)
+    .then((res) => {
+      console.log('request successful', res);
+    })
+    .catch((err) => {
+      console.log('request failed', err);
+    })
   }
 
   removeStep(i) {
