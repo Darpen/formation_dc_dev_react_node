@@ -14,3 +14,28 @@ h1{
 .homeLogo{
     width: 30px;
 }
+
+.person{
+    width: 30px;
+}
+
+#logPopup{
+    display: none;
+    position: fixed;
+    right: 4%;
+    top: 8%;
+    color: black;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: white;
+    padding: 8px;
+    font-weight: 800;
+    border-radius: 8px;
+    border: 2px solid;
+}
+
+header span{
+    padding: 8px 10px;
+    display: block;
+}

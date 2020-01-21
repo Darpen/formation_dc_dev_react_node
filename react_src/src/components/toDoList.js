@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Admin from "./admin";
 import PageWithHeader from "./pageWithHeader";
 import "../css/toDoList.css";
+import moon from "../images/moon.png";
 
 class ToDoList extends Component {
   constructor(props) {
@@ -36,9 +37,10 @@ class ToDoList extends Component {
                   {tache.description.substring(0,70)}...
                 </p>
               </li>
-            );
+                );
             })}
         </ul>
+        <img className="moon" src={moon} alt="la lune"></img>
         </div>
 {/*         <Admin users={this.props.users} addPastille={this.props.addPastille} />
  */}      </PageWithHeader>
