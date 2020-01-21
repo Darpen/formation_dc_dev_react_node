@@ -78,7 +78,13 @@ app.post('/user', async(req, res) => {
 
   console.log(req.body);
 
-  db_connection.collection('user').insertOne(req.body, function(err, response){
+  /* DELETe les elements non necessaires dans la base de données */
+  let user = req.body;
+  delete user.repeatPassword;
+  delete user.errors;
+  delete user.redirectAfterRegister;
+
+  db_connection.collection('user').insertOne(user, function(err, response){
     if(err) throw err;
 
     console.log("document inserted")
