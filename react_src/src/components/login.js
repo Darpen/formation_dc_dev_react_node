@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "../css/form.css";
 
-import axios from 'axios';
-axios.defaults.withCredentials = true;
-
 // route
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+
+import axios from 'axios';
+axios.defaults.withCredentials = true;
 
 class Login extends Component {
   constructor(props) {
@@ -24,6 +24,10 @@ class Login extends Component {
     this.props.users.forEach(user => {
       if((this.state.email === user.email) && (this.state.password === user.password)){
         console.log('Utilisateur connecté');
+        axios.post("http://localhost:3001/login", {
+          email: this.state.email,
+          password: this.state.password
+        });
       }else{
         this.setState({errorLogin: 'Email ou mot de passe incorrect'})
       }

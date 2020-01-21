@@ -4,6 +4,7 @@ const app = express()
 
 const cors = require('cors')
 const bodyParser = require('body-parser');
+const bcrypt = require('bcryptjs');
 
 let connect = require("./connection.js")
 let config = require("./config.js")
@@ -97,19 +98,24 @@ app.post('/user', async(req, res) => {
   })
 })
 
-app.post('/login', async(req, res) => {
-  let {db_client, db_connection} = await connect()
-
-  console.log('/login', req.body)
-
-  db_connection.collection('user').insertOne(user, function(err, response){
-    if(err) throw err;
-    
-    console.log("User log in")
-    db_client.close()
-    res.send('ok')
-  })
-})
+app.post('/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    if (!email || !password) {
+      return res.status(400).json({ message: 'Send all required fields' });
+    }
+    const { password: hash, id } = await db('users').select('password', 'id').where('email', email).first();
+    if (!hash || !bcrypt.compareSync(password, hash)) {
+      return res.status(403).json({ message: 'Could not authenticate.' });
+    }
+    req.session.userId = id;
+    console.log('ok');
+    return res.status(200).json({ email, id });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ err });
+  }
+});
 
 app.listen(config.port, function () {
   console.log(`Example app listening on port ${config.port} !`)
