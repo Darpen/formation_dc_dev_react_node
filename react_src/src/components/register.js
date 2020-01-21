@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import "../css/form.css";
+import {Redirect} from 'react-router-dom';
 
 class Register extends Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class Register extends Component {
       email: "",
       password: "",
       repeatPassword: "",
-      errors: {}
+      errors: {},
+      redirectAfterRegister: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -58,6 +60,11 @@ class Register extends Component {
       axios.post('http://localhost:3001/user', this.state)
       .then((res) => {
         console.log('request successful', res);
+        //On redirige vers toDolist
+        newState.redirectAfterRegister = true;
+        this.setState(newState);
+         // J'envoie le state à connexion.js
+        this.props.onRegister(this.state);
       })
       .catch((err) => {
         console.log('request failed', err);
@@ -65,15 +72,17 @@ class Register extends Component {
     }
 
     //let newUsers = [...this.state.users, user];
-    this.setState(newState);
 
-    // J'envoie le state à connexion.js
-    this.props.onRegister(this.state);
+   
 
     
   }
 
   render() {
+    console.log(this.state.redirectAfterRegister);
+    if(this.state.redirectAfterRegister === true){
+      return <Redirect to='/todoList' />
+    }
     return (
       <form
         onSubmit={e => {
