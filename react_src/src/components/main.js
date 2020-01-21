@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Connexion from "./connexion";
 import ToDoList from "./toDoList";
 import axios from 'axios';
+import {Switch, Route} from 'react-router-dom';
 
 class Main extends Component {
   constructor(props) {
@@ -97,12 +98,14 @@ class Main extends Component {
 
   render() {
     return (
-      <div>
-        <div className="connexion">
-          <Connexion users={this.state.users} addUser={this.addUser} />
-        </div>
-        <ToDoList users={this.state.users} addPastille={this.addPastille} pastilles={this.state.pastilles} />
-      </div>
+      <Switch>
+            <Route path="/connexion" component={() => {
+              return <Connexion users={this.state.users} addUser={this.addUser} />
+            }} />
+            <Route path="/todoList" component={() => {
+              return <ToDoList users={this.state.users} addPastille={this.addPastille} pastilles={this.state.pastilles} />
+            }} />
+      </Switch>
     );
   }
 }
