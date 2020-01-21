@@ -8,6 +8,18 @@ const bodyParser = require('body-parser');
 let connect = require("./connection.js")
 let config = require("./config.js")
 
+/* SESSION COOKIES */
+var cookieSession = require('cookie-session')
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ['code'],
+
+  // Cookie Options
+  maxAge: 24 * 60 * 60 * 1000 // 24 hours
+}))
+
+/* GET AND POST REQUEST */
 app.use(cors())
 app.use(bodyParser.json())
 
@@ -36,7 +48,7 @@ app.post('/todo', async(req, res) => {
 
   console.log(req.body);
 
-  db_connection.collection('todo').insertOne([...req.body], function(err, response){
+  db_connection.collection('todo').insertOne(req.body, function(err, response){
     if(err) throw err;
 
     console.log("document inserted")
@@ -66,7 +78,13 @@ app.post('/user', async(req, res) => {
 
   console.log(req.body);
 
-  db_connection.collection('user').insertOne([...req.body], function(err, response){
+  /* DELETe les elements non necessaires dans la base de données */
+  let user = req.body;
+  delete user.repeatPassword;
+  delete user.errors;
+  delete user.redirectAfterRegister;
+
+  db_connection.collection('user').insertOne(user, function(err, response){
     if(err) throw err;
 
     console.log("document inserted")
