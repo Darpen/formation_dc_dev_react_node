@@ -65,7 +65,7 @@ class Main extends Component {
           addedUsers: ['Mark Holcomb', 'Misha Mansoor', 'Spencer Sotelo']
         },
         {
-          title: 'Mern',
+          title: 'FS0SIETY',
           label: 'Graphisme',
           description: 'Grâce à React, il est facile de créer des interfaces utilisateurs interactives. Définissez des vues simples pour chaque état de votre application, et lorsque vos données changeront, React mettra à jour, de façon optimale, juste les composants qui en auront besoin.',
           dateDebut: '19/01/2020',
@@ -73,7 +73,17 @@ class Main extends Component {
           files: '',
           steps: ['Inclure react', 'Inclure node', 'Inclure mongodb', 'Inclure express'],
           addedUsers: ['Mark Holcomb', 'Misha Mansoor', 'Spencer Sotelo']
-        }
+        },
+        {
+          title: 'Project Entropia',
+          label: 'Graphisme',
+          description: 'Grâce à React, il est facile de créer des interfaces utilisateurs interactives. Définissez des vues simples pour chaque état de votre application, et lorsque vos données changeront, React mettra à jour, de façon optimale, juste les composants qui en auront besoin.',
+          dateDebut: '19/01/2020',
+          dateFin: '30/02/2020',
+          files: '',
+          steps: ['Inclure react', 'Inclure node', 'Inclure mongodb', 'Inclure express'],
+          addedUsers: ['Mark Holcomb', 'Misha Mansoor', 'Spencer Sotelo']
+        },
       ]
     };
   }
