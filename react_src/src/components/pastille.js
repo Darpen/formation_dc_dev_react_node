@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import "../css/pastille.css";
+import PageWithHeader from "./pageWithHeader";
 
 class Pastille extends Component {
   render() {
     return (
-      <div>
+      <PageWithHeader>
         <h1 className="title">{this.props.pastille.title}</h1>
         <div className="pastille">
           <div className="info">
@@ -50,7 +51,7 @@ class Pastille extends Component {
             <ul />
           </div>
         </div>
-      </div>
+      </PageWithHeader>
     );
   }
 }

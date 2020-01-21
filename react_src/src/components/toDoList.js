@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Admin from "./admin";
+import PageWithHeader from "./pageWithHeader";
 
 class ToDoList extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class ToDoList extends Component {
 
   render() {
     return (
-      <div>
+      <PageWithHeader>
         <ul>
           {this.props.pastilles.map((tache, index) => {
             return (
@@ -29,7 +30,7 @@ class ToDoList extends Component {
             })}
         </ul>
 {/*         <Admin users={this.props.users} addPastille={this.props.addPastille} />
- */}      </div>
+ */}      </PageWithHeader>
     );
   }
 }
