@@ -1,0 +1,16 @@
+header{
+    display: flex;
+    justify-content: space-around;
+    height: 68px;
+    color: #b78726;
+    align-items: center;
+    margin: 10px 0;
+}
+
+h1{
+    font-size: 1em;
+}
+
+.homeLogo{
+    width: 30px;
+}
