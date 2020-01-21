@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import "../css/form.css";
 
+import axios from 'axios';
+axios.defaults.withCredentials = true;
+
 // route
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 
@@ -13,10 +16,10 @@ class Login extends Component {
       errorLogin: ''
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
   }
 
-  handleSubmit(event) {
+  handleLogin(event) {
      //controler si l'utilisateur existe dans la base de données
     this.props.users.forEach(user => {
       if((this.state.email === user.email) && (this.state.password === user.password)){
@@ -34,7 +37,7 @@ class Login extends Component {
         onSubmit={e => {
           e.preventDefault();
           console.log(this.state);
-          this.handleSubmit(e);
+          this.handleLogin(e);
         }}
       >
         <label>
