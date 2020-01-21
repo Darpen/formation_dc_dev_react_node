@@ -15,6 +15,7 @@ app.get('/', function (req, res) {
   res.send('Hello World!')
 })
 
+/* ------TODO----- */
 app.get('/todo', async (req, res) => {
 
   let {db_client, db_connection} = await connect()
@@ -35,7 +36,37 @@ app.post('/todo', async(req, res) => {
 
   console.log(req.body);
 
-  db_connection.collection('todo').insertOne(req.body, function(err, response){
+  db_connection.collection('todo').insertOne([...req.body], function(err, response){
+    if(err) throw err;
+
+    console.log("document inserted")
+    db_client.close()
+    res.send('ok');
+  })
+})
+
+/* ------USER----- */
+app.get('/user', async (req, res) => {
+
+  let {db_client, db_connection} = await connect()
+  
+  db_connection.collection('user').find({}).toArray((err, result) => {
+    if(err) return console.log(err)
+
+    console.log('user :', result)
+
+    db_client.close()
+    res.send(result)
+   
+  })
+})
+
+app.post('/user', async(req, res) => {
+  let {db_client, db_connection} = await connect()
+
+  console.log(req.body);
+
+  db_connection.collection('user').insertOne([...req.body], function(err, response){
     if(err) throw err;
 
     console.log("document inserted")

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-/* import axios from 'axios'; */
+import axios from 'axios';
 import "../css/form.css";
 
 class Register extends Component {
@@ -55,11 +55,13 @@ class Register extends Component {
       console.log("listuser", newState.user);
 
       //POST REQUEST
-      /* axios.post('http://localhost:3001', {...user})
-        .then(response=>{
-          console.log('post response: ', response);
-          console.log('post response data: ', response.data);
-      }) */
+      axios.post('http://localhost:3001/user', this.state)
+      .then((res) => {
+        console.log('request successful', res);
+      })
+      .catch((err) => {
+        console.log('request failed', err);
+      })
     }
 
     //let newUsers = [...this.state.users, user];

@@ -23,13 +23,6 @@ class ListMembers extends Component {
     });
   }
 
-  /* componentDidMount(){
-    axios.get(`https://localhost:3001`)
-      .then(response => {
-        console.log('get response: ', response);
-      })
-  } */
-
   render() {
     console.log("listMembers: ", this.props.users);
     console.log('listMembers addedUsers: ', this.state.addedUsers);
