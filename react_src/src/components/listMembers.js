@@ -45,8 +45,9 @@ class ListMembers extends Component {
                   id={index} name="user" 
                   value={user.prenom + ' ' + user.nom} 
                   onChange={e=>{
+                    let add
                     if(e.target.checked === true){
-                      let add = [...this.state.addedUsers, e.target.value]
+                      add = [...this.state.addedUsers, e.target.value]
                       this.setState({ addedUsers: add, addedUser: '' })
                     }else{
                       // J'enlève le user si la checkbox est décochée
@@ -54,7 +55,7 @@ class ListMembers extends Component {
                     }
 
                     // envoi de la props
-                    this.props.onUserChecked(this.state.addedUsers);
+                    this.props.onUserChecked(add);
                   }} 
                 />
                 <label htmlFor="user">{user.prenom} {user.nom}</label>
