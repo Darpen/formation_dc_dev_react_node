@@ -3,4 +3,13 @@
 }
 .listMembers ul{
     list-style: none;
+    color: white;
+}
+
+.envoyer{
+    background-color: #b78726;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    width: 100%;
+    height: 3%;
 }

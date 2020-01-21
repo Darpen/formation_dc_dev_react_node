@@ -20,7 +20,7 @@ class ToDoList extends Component {
         <ul>
           {this.props.pastilles.map((tache, index) => {
             return (
-              <li onClick={(e) => this.displayToDo(e, tache.id)} id={index} key={index}>
+              <li onClick={(e) => this.displayToDo(e, tache.id)} id={index} key={tache.id}>
                 <span>
                   {tache.title} {tache.label}
                 </span>
@@ -28,8 +28,8 @@ class ToDoList extends Component {
             );
             })}
         </ul>
-        <Admin users={this.props.users} addPastille={this.props.addPastille} />
-      </div>
+{/*         <Admin users={this.props.users} addPastille={this.props.addPastille} />
+ */}      </div>
     );
   }
 }
