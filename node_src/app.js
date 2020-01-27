@@ -30,36 +30,23 @@ app.get('/', function (req, res) {
 
 /* ------TODO----- */
 app.get('/todo', async (req, res) => {
-
-  let {db_client, db_connection} = await connect()
-  
-  db_connection.collection('todo').find({}).toArray((err, result) => {
-    if(err) return console.log(err)
-
-    console.log('todo :', result)
-
-    db_client.close()
-    res.send(result)
-   
-  })
+  let result = await queries.find('todo', {})
+  res.json(result)
 })
-
-app.post('/todo', async(req, res) => {
-  let {db_client, db_connection} = await connect()
-
-  console.log(req.body);
-
+ 
+app.get('/todo/:id', async (req, res) => {
+  console.log(req.params)
+  let id = req.params.id
+  let result = await queries.findOne('todo', {"_id": ObjectID(id)})
+  res.json(result)
+})
+ 
+app.post('/todo', async (req, res) => {
+  let result = await queries.insertOne('todo', req.body)
   //DELETE element non necessaire dans la bdd
   let todo = req.body
   delete todo.step;
-
-  db_connection.collection('todo').insertOne(req.body, function(err, response){
-    if(err) throw err;
-
-    console.log("document inserted")
-    db_client.close()
-    res.send('ok');
-  })
+  res.send(result)
 })
 
 /* ------USER----- */
@@ -98,24 +85,58 @@ app.post('/user', async(req, res) => {
   })
 })
 
-app.post('/login', async (req, res) => {
+//===============================CORRECTION=======================================
+
+ 
+app.post('/signup', async (req, res, next) => {
+ 
   try {
-    const { email, password } = req.body;
-    if (!email || !password) {
-      return res.status(400).json({ message: 'Send all required fields' });
+   
+    let user = req.body
+    console.log("user", user)
+   
+    let existingUser = await queries.findOne('user', {mail: user.mail})
+   
+    if(existingUser !== null) {
+      next("Ce compte existe déjà")
+    } else {
+     
+      let insert = await queries.insertOne('user', user)
+     
+      res.json(insert)
     }
-    const { password: hash, id } = await db('users').select('password', 'id').where('email', email).first();
-    if (!hash || !bcrypt.compareSync(password, hash)) {
-      return res.status(403).json({ message: 'Could not authenticate.' });
-    }
-    req.session.userId = id;
-    console.log('ok');
-    return res.status(200).json({ email, id });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({ err });
+   
+  } catch(err) {
+    next(err)
   }
-});
+})
+ 
+app.post('/login', async (req, res, next) => {
+ 
+  try {
+   
+    let user = req.body
+    console.log("user", user)
+   
+    let existingUser = await queries.findOne('user', {mail: user.mail})
+   
+    if(existingUser !== null && existingUser.password === user.password) {
+      req.session.user = {mail: existingUser.mail, _id: existingUser._id}
+      let userToReturn = {
+        _id: existingUser._id,
+        mail: existingUser.mail,
+        firstname: existingUser.firstname,
+        lastname: existingUser.lastname,
+      }
+      res.send(userToReturn)
+    } else {
+      next("Invalid credentials")
+    }
+   
+  } catch(err) {
+    next(err)
+  }
+})
 
 app.listen(config.port, function () {
   console.log(`Example app listening on port ${config.port} !`)
