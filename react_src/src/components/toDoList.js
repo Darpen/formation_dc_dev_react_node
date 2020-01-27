@@ -12,6 +12,18 @@ class ToDoList extends Component {
     };
   }
 
+  componentDidMount() {
+    axios.get(`http://localhost:3001/todolist/todo/1`)
+    .then(function (response) {
+      // handle success
+      console.log(response);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+  }
+
   displayToDo(e, id){
     e.preventDefault();
     console.log("display Pastille");
