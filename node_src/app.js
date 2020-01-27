@@ -29,20 +29,33 @@ app.get('/', function (req, res) {
 })
 
 /* ------TODO----- */
+/* GET ALL*/
 app.get('/todo', async (req, res) => {
   let result = await queries.find('todo', {})
   res.json(result)
 })
- 
-app.get('/todo/:id', async (req, res) => {
-  console.log(req.params)
-  let id = req.params.id
-  let result = await queries.findOne('todo', {"_id": ObjectID(id)})
-  res.json(result)
+
+/* GET une TODO*/
+app.get('todolist/todo/id', async (req, res) => {
+
+  let {db_client, db_connection} = await connect()
+  
+  db_connection.collection('todo').findOne({_id:id}).toArray((err, result) => {
+    if(err) return console.log(err)
+
+    console.log('todolistid :', result)
+
+    db_client.close()
+    res.send(result)
+   
+  })
 })
- 
-app.post('/todo', async (req, res) => {
-  let result = await queries.insertOne('todo', req.body)
+
+app.post('/todo', async(req, res) => {
+  let {db_client, db_connection} = await connect()
+
+  console.log(req.body);
+
   //DELETE element non necessaire dans la bdd
   let todo = req.body
   delete todo.step;

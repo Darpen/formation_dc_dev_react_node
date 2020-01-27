@@ -1,12 +1,18 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 .pastille {
   display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  width: 80%;
 }
 h1 {
   font-size: 1.5em;
-  margin: 0;
+  margin: auto;
 }
 h2 {
   font-size: 1.2em;
@@ -29,10 +35,12 @@ div p:nth-child(1) {
 }
 .info {
   width: 80%;
+  margin: auto;
 }
 .info-header {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
 }
 .labelName {
   padding: 7px 20px;

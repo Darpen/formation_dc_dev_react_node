@@ -4,6 +4,10 @@
     Les formulaires ne doivent pas être modifié directement
     dans ce css
 */
+body{
+    font-family: 'Raleway', sans-serif;
+}
+
 .connexion{
     display: flex;
     width: 100vw;
