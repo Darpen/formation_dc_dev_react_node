@@ -29,6 +29,7 @@ app.get('/', function (req, res) {
 })
 
 /* ------TODO----- */
+/* GET ALL*/
 app.get('/todo', async (req, res) => {
 
   let {db_client, db_connection} = await connect()
@@ -37,6 +38,22 @@ app.get('/todo', async (req, res) => {
     if(err) return console.log(err)
 
     console.log('todo :', result)
+
+    db_client.close()
+    res.send(result)
+   
+  })
+})
+
+/* GET une TODO*/
+app.get('todolist/todo/id', async (req, res) => {
+
+  let {db_client, db_connection} = await connect()
+  
+  db_connection.collection('todo').findOne({_id:id}).toArray((err, result) => {
+    if(err) return console.log(err)
+
+    console.log('todolistid :', result)
 
     db_client.close()
     res.send(result)
