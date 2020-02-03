@@ -93,7 +93,7 @@ class Main extends Component {
   }
 
   componentDidMount(){
-    axios.get('/user')
+    axios.get('http://localhost:3001/user', {withCredentials: true})
     .then(function (response) {
       // handle success
       this.setState({users: response.data})

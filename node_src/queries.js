@@ -1,4 +1,4 @@
-let connect = require("../connection.js");
+let connect = require("./connection.js");
  
 let find = async (collection, param) => {
  

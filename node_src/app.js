@@ -5,9 +5,18 @@ const app = express()
 const cors = require('cors')
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
+const queries = require('./queries');
 
 let connect = require("./connection.js")
 let config = require("./config.js")
+
+var corsOptions = {
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  credentials: true
+}
+
+app.use(cors(corsOptions))
 
 /* SESSION COOKIES */
 var cookieSession = require('cookie-session')
@@ -21,7 +30,6 @@ app.use(cookieSession({
 }))
 
 /* ----------------GET AND POST REQUEST----------------- */
-app.use(cors())
 app.use(bodyParser.json())
 
 app.get('/', function (req, res) {
@@ -40,7 +48,7 @@ app.get('/todo', async (req, res) => {
 /* 
 GET TODO BY ID 
 */
-app.get('todolist/todo/id', async (req, res) => {
+app.get('todolist/todo/{id}', async (req, res) => {
 
   console.log(req.params)
   let id = req.params.id
