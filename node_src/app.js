@@ -29,59 +29,51 @@ app.get('/', function (req, res) {
 })
 
 /* ------TODO----- */
-/* GET ALL*/
+/* 
+GET ALL
+*/
 app.get('/todo', async (req, res) => {
   let result = await queries.find('todo', {})
   res.json(result)
 })
 
-/* GET une TODO*/
+/* 
+GET TODO BY ID 
+*/
 app.get('todolist/todo/id', async (req, res) => {
 
-  let {db_client, db_connection} = await connect()
-  
-  db_connection.collection('todo').findOne({_id:id}).toArray((err, result) => {
-    if(err) return console.log(err)
-
-    console.log('todolistid :', result)
-
-    db_client.close()
-    res.send(result)
-   
-  })
+  console.log(req.params)
+  let id = req.params.id
+  let result = await queries.findOne('todo', {"_id": ObjectID(id)})
+  res.json(result)
 })
 
-app.post('/todo', async(req, res) => {
-  let {db_client, db_connection} = await connect()
-
-  console.log(req.body);
-
+/* 
+POST TODO 
+*/
+app.post('/todo', async (req, res) => {
+  let result = await queries.insertOne('todo', req.body);
   //DELETE element non necessaire dans la bdd
   let todo = req.body
   delete todo.step;
+  //envoi
   res.send(result)
 })
 
 /* ------USER----- */
+/* 
+GET ALL
+ */
 app.get('/user', async (req, res) => {
-
-  let {db_client, db_connection} = await connect()
-  
-  db_connection.collection('user').find({}).toArray((err, result) => {
-    if(err) return console.log(err)
-
-    console.log('user :', result)
-
-    db_client.close()
-    res.send(result)
-   
-  })
+  let result = await queries.find('user', {})
+  res.json(result)
 })
 
+/* 
+POST USER
+*/
 app.post('/user', async(req, res) => {
-  let {db_client, db_connection} = await connect()
-
-  console.log(req.body);
+  let result = await queries.insertOne('user', req.body);
 
   /* DELETE les elements non necessaires dans la base de données */
   let user = req.body;
@@ -89,18 +81,13 @@ app.post('/user', async(req, res) => {
   delete user.errors;
   delete user.redirectAfterRegister;
 
-  db_connection.collection('user').insertOne(user, function(err, response){
-    if(err) throw err;
-
-    console.log("document inserted")
-    db_client.close()
-    res.send('ok');
-  })
+  //envoi
+  res.send(result)
 })
 
-//===============================CORRECTION=======================================
-
- 
+/* 
+SIGNUP
+*/
 app.post('/signup', async (req, res, next) => {
  
   try {
@@ -124,6 +111,9 @@ app.post('/signup', async (req, res, next) => {
   }
 })
  
+/* 
+LOGIN
+*/
 app.post('/login', async (req, res, next) => {
  
   try {
