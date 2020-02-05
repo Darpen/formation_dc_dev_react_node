@@ -5,7 +5,7 @@ import "../css/form.css";
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 
 import axios from 'axios';
-axios.defaults.withCredentials = true;
+/* axios.defaults.withCredentials = true; */
 
 class Login extends Component {
   constructor(props) {
@@ -20,18 +20,10 @@ class Login extends Component {
   }
 
   handleLogin(event) {
-     //controler si l'utilisateur existe dans la base de données
-    this.props.users.forEach(user => {
-      if((this.state.email === user.email) && (this.state.password === user.password)){
-        console.log('Utilisateur connecté');
-        axios.post("http://localhost:3001/login", {
-          email: this.state.email,
-          password: this.state.password
-        });
-      }else{
-        this.setState({errorLogin: 'Email ou mot de passe incorrect'})
-      }
-    });
+      axios.post("http://localhost:3001/login", {
+        email: this.state.email,
+        password: this.state.password
+      });
   }
 
   render() {
