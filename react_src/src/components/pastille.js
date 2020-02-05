@@ -4,10 +4,11 @@ import PageWithHeader from "./pageWithHeader";
 
 class Pastille extends Component {
   render() {
+    console.log(this.props.pastille);
     return (
       <PageWithHeader>
-        <h1 className="title">{this.props.pastille.title}</h1>
         <div className="pastille">
+          <h1 className="title">{this.props.pastille.title}</h1>
           <div className="info">
             <div className="info-header">
               <div className="label">

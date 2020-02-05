@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import Connexion from "./connexion";
 import ToDoList from "./toDoList";
+import Pastille from "./pastille";
 import axios from 'axios';
 import {Switch, Route} from 'react-router-dom';
 
@@ -55,6 +56,7 @@ class Main extends Component {
       ],
       pastilles: [
         {
+          id: 1,
           title: 'Mern',
           label: 'Digital',
           description: 'Grâce à React, il est facile de créer des interfaces utilisateurs interactives. Définissez des vues simples pour chaque état de votre application, et lorsque vos données changeront, React mettra à jour, de façon optimale, juste les composants qui en auront besoin.',
@@ -65,6 +67,7 @@ class Main extends Component {
           addedUsers: ['Mark Holcomb', 'Misha Mansoor', 'Spencer Sotelo']
         },
         {
+          id: 2,
           title: 'FS0SIETY',
           label: 'Graphisme',
           description: 'Grâce à React, il est facile de créer des interfaces utilisateurs interactives. Définissez des vues simples pour chaque état de votre application, et lorsque vos données changeront, React mettra à jour, de façon optimale, juste les composants qui en auront besoin.',
@@ -75,6 +78,7 @@ class Main extends Component {
           addedUsers: ['Mark Holcomb', 'Misha Mansoor', 'Spencer Sotelo']
         },
         {
+          id: 3,
           title: 'Project Entropia',
           label: 'Graphisme',
           description: 'Grâce à React, il est facile de créer des interfaces utilisateurs interactives. Définissez des vues simples pour chaque état de votre application, et lorsque vos données changeront, React mettra à jour, de façon optimale, juste les composants qui en auront besoin.',
@@ -89,7 +93,7 @@ class Main extends Component {
   }
 
   componentDidMount(){
-    axios.get('/user')
+    axios.get('http://localhost:3001/user', {withCredentials: true})
     .then(function (response) {
       // handle success
       this.setState({users: response.data})
@@ -124,6 +128,10 @@ class Main extends Component {
             }} />
             <Route path="/todoList" component={() => {
               return <ToDoList users={this.state.users} addPastille={this.addPastille} pastilles={this.state.pastilles} />
+            }} />
+            {/* A enlever par la suite */}
+            <Route path="/pastille" component={() => {
+              return <Pastille addPastille={this.addPastille} pastille={this.state.pastilles[0]} />
             }} />
       </Switch>
     );

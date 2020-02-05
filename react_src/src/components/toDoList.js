@@ -3,6 +3,7 @@ import Admin from "./admin";
 import PageWithHeader from "./pageWithHeader";
 import "../css/toDoList.css";
 import moon from "../images/moon.png";
+import axios from "axios";
 
 class ToDoList extends Component {
   constructor(props) {
@@ -10,6 +11,18 @@ class ToDoList extends Component {
     this.state = {
       pastille: []
     };
+  }
+
+  componentDidMount() {
+    axios.get(`http://localhost:3001/todolist/todo/1`)
+    .then(function (response) {
+      // handle success
+      console.log(response);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
   }
 
   displayToDo(e, id){
