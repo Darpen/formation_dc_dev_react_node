@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Connexion from "./connexion";
 import ToDoList from "./toDoList";
 import Pastille from "./pastille";
+import PageTodo from "./pageTodo";
 import axios from 'axios';
 import {Switch, Route} from 'react-router-dom';
 
@@ -94,7 +95,7 @@ class Main extends Component {
 
   componentDidMount(){
     axios.get('http://localhost:3001/user', {withCredentials: true})
-    .then(function (response) {
+    .then((response) => {
       // handle success
       this.setState({users: response.data})
       console.log(response);
@@ -130,9 +131,9 @@ class Main extends Component {
               return <ToDoList users={this.state.users} addPastille={this.addPastille} pastilles={this.state.pastilles} />
             }} />
             {/* A enlever par la suite */}
-            <Route path="/pastille" component={() => {
-              return <Pastille addPastille={this.addPastille} pastille={this.state.pastilles[0]} />
-            }} />
+            <Route path="/pastille/:id" component={() => <PageTodo />} />
+            {/*  return <Pastille addPastille={this.addPastille} pastille={this.state.pastilles[0]} />  */}
+            
       </Switch>
     );
   }

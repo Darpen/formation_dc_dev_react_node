@@ -3,7 +3,7 @@ import Admin from "./admin";
 import PageWithHeader from "./pageWithHeader";
 import "../css/toDoList.css";
 import moon from "../images/moon.png";
-import axios from "axios";
+import {Link} from 'react-router-dom';
 
 class ToDoList extends Component {
   constructor(props) {
@@ -13,23 +13,6 @@ class ToDoList extends Component {
     };
   }
 
-  componentDidMount() {
-    axios.get(`http://localhost:3001/todolist/todo/1`)
-    .then(function (response) {
-      // handle success
-      console.log(response);
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    })
-  }
-
-  displayToDo(e, id){
-    e.preventDefault();
-    console.log("display Pastille");
-  }
-
   render() {
     return (
       <PageWithHeader>
@@ -37,10 +20,11 @@ class ToDoList extends Component {
         <ul>
           {this.props.pastilles.map((tache, index) => {
             return (
-              <li onClick={(e) => this.displayToDo(e, tache.id)} id={index} key={tache.id}>
+              <Link to={"/pastille/" + tache.id} key={tache.id}>
+                <li id={index} key={tache.id}>
                 <div>
                 <h2>
-                  {tache.title}
+                  {tache.title} {tache.id}
                 </h2>
                 <p className="dateFin">
                   {tache.dateFin}
@@ -50,6 +34,8 @@ class ToDoList extends Component {
                   {tache.description.substring(0,70)}...
                 </p>
               </li>
+              </Link>
+              
                 );
             })}
         </ul>

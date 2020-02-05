@@ -3,6 +3,11 @@ import "../css/pastille.css";
 import PageWithHeader from "./pageWithHeader";
 
 class Pastille extends Component {
+
+  componentDidMount() {
+    
+  }
+
   render() {
     console.log(this.props.pastille);
     return (
