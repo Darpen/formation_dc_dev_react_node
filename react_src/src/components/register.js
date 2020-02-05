@@ -71,11 +71,6 @@ class Register extends Component {
       })
     }
 
-    //let newUsers = [...this.state.users, user];
-
-   
-
-    
   }
 
   render() {

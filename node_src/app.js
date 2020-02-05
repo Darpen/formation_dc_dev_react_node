@@ -96,14 +96,14 @@ app.post('/user', async(req, res) => {
 /* 
 SIGNUP
 */
-app.post('/signup', async (req, res, next) => {
+app.post('/register', async (req, res, next) => {
  
   try {
    
     let user = req.body
     console.log("user", user)
    
-    let existingUser = await queries.findOne('user', {mail: user.mail})
+    let existingUser = await queries.findOne('user', {mail: user.email})
    
     if(existingUser !== null) {
       next("Ce compte existe déjà")
