@@ -78,7 +78,7 @@ app.get('/user', async (req, res) => {
   })
 })
 
-app.post('/user', async(req, res) => {
+app.post('/register', async(req, res) => {
   let {db_client, db_connection} = await connect()
 
   console.log(req.body);
@@ -98,23 +98,30 @@ app.post('/user', async(req, res) => {
   })
 })
 
-app.post('/login', async (req, res) => {
-  try {
-    const { email, password } = req.body;
-    if (!email || !password) {
-      return res.status(400).json({ message: 'Send all required fields' });
-    }
-    const { password: hash, id } = await db('users').select('password', 'id').where('email', email).first();
-    if (!hash || !bcrypt.compareSync(password, hash)) {
-      return res.status(403).json({ message: 'Could not authenticate.' });
-    }
-    req.session.userId = id;
-    console.log('ok');
-    return res.status(200).json({ email, id });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({ err });
-  }
+app.post('/login', async(req, res) => {
+  let {db_client, db_connection} = await connect();
+
+  console.log('login post ', req.body);
+
+  let user = req.body;
+  db_connection.collection('user').find({}).toArray((err, result) => {
+    if(err) return console.log(err)
+    
+    //boucle sur le tableau des users dans node
+    result.forEach(db_user => {
+      if(user.email === db_user.email && user.password === db_user.password){
+        console.log('Existe dans la bdd')
+        res.send(result);
+      }
+      else{
+        console.log("N'existe pas dans la bdd")
+      }
+    });
+
+    db_client.close();
+  })
+  
+
 });
 
 app.listen(config.port, function () {

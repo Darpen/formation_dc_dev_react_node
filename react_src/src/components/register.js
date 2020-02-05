@@ -57,7 +57,7 @@ class Register extends Component {
       console.log("listuser", newState.user);
 
       //POST REQUEST
-      axios.post('http://localhost:3001/user', this.state)
+      axios.post('http://localhost:3001/register', this.state)
       .then((res) => {
         console.log('request successful', res);
         //On redirige vers toDolist
