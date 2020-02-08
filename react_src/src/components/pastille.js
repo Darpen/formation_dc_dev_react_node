@@ -4,12 +4,8 @@ import PageWithHeader from "./pageWithHeader";
 
 class Pastille extends Component {
 
-  componentDidMount() {
-    
-  }
-
   render() {
-    console.log(this.props.pastille);
+    console.log('Pastille: ', this.props.pastille);
     return (
       <PageWithHeader>
         <div className="pastille">
@@ -37,7 +33,7 @@ class Pastille extends Component {
               <p>Piéces jointes</p>
               <div>{this.props.pastille.files}</div>
             </div>
-            <div className="step">
+            {/* <div className="step">
               <p>Etapes</p>
               <ul className="stepList">
                 {this.props.pastille.steps.map((step, i) => {
@@ -49,7 +45,7 @@ class Pastille extends Component {
                   );
                 })}
               </ul>
-            </div>
+            </div> */}
           </div>
 
           <div className="members">

@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 
 import Main from "./components/main";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 import axios from 'axios';
 

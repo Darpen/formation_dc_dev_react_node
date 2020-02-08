@@ -12,7 +12,7 @@ const connect = () => {
       if (err) {
         reject(err)
       }
-
+      
       db_client = client;
       db_connection = client.db('todo')
       resolve({ db_client, db_connection })
@@ -20,7 +20,6 @@ const connect = () => {
 
   })
 }
-
 
 module.exports = connect
 

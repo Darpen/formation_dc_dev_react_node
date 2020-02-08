@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 import "../css/form.css";
-
-// route
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
-
 import axios from 'axios';
-/* axios.defaults.withCredentials = true; */
 
 class Login extends Component {
   constructor(props) {

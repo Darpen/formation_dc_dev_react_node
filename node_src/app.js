@@ -48,9 +48,9 @@ app.get('/todo', async (req, res) => {
 /* 
 GET TODO BY ID 
 */
-app.get('todolist/todo/{id}', async (req, res) => {
+app.get('todo/:id', async (req, res) => {
 
-  console.log(req.params)
+  console.log('params ',req.params)
   let id = req.params.id
   let result = await queries.findOne('todo', {"_id": ObjectID(id)})
   res.json(result)

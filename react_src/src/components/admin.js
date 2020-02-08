@@ -11,7 +11,8 @@ class Admin extends Component {
           <ToDoForm
             onPastilleSend={pastille => {
               this.props.addPastille(pastille);
-            }} users={this.props.users}
+            }} 
+            users={this.props.users}
           />
       </div>
       </PageWithHeader>
