@@ -48,7 +48,7 @@ app.get('/todo', async (req, res) => {
 /* 
 GET TODO BY ID 
 */
-app.get('todo/:id', async (req, res) => {
+app.get('/todo/:id', async (req, res) => {
 
   console.log('params ',req.params)
   let id = req.params.id
