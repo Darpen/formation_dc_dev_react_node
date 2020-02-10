@@ -2,12 +2,7 @@ import React, { Component } from "react";
 import Pastille from "./pastille";
 import {useRouteMatch} from "react-router-dom";
 import axios from 'axios';
-
-export function getmatchid(){
-  let match = useRouteMatch('/pastille/:id');
-  let id = match.params.id;
-  return id;
-}
+import { withRouter } from "react-router";
 
 class PageTodo extends Component {
   constructor(props) {
@@ -18,10 +13,11 @@ class PageTodo extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3001/todo/' + getmatchid())
+    let id = this.props.match.params.id
+    axios.get('http://localhost:3001/todo/' + id)
     .then((response) => {
     // handle success
-    this.setState({pastille: response.data}) 
+    this.setState({pastille: response.data[0]}) 
     })
     .catch((error) =>{
     // handle error
@@ -37,4 +33,4 @@ class PageTodo extends Component {
   }
 }
 
-export default PageTodo;
+export default withRouter(PageTodo);
