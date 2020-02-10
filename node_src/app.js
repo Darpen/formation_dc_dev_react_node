@@ -1,6 +1,4 @@
 
-const express = require('express')
-const app = express()
 
 const cors = require('cors')
 const bodyParser = require('body-parser');
@@ -19,15 +17,35 @@ var corsOptions = {
 app.use(cors(corsOptions))
 
 /* SESSION COOKIES */
-var cookieSession = require('cookie-session')
 
-app.use(cookieSession({
-  name: 'session',
-  keys: ['code'],
+const express = require('express')
+const app = express()
+const session = require('express-session')
+const TWO_HOURS = 1000 * 60 * 60 * 2
 
-  // Cookie Options
-  maxAge: 24 * 60 * 60 * 1000 // 24 hours
+const {
+  PORT = 3000,
+  NODE_ENV = 'development',
+
+  SESS_SECRET = 'ssh!quiet,it\'asecret!',
+  SESS_NAME = 'sid',
+  SESS_LIFETIME = TWO_HOURS
+} = process.env
+
+const IN_PROD = NODE_ENV === 'production'
+
+app.use(session({
+  name: SESS_NAME,
+  resave: false,
+  saveUninitialized: false,
+  secret: SESS_SECRET,
+  cookie: {
+    maxAge: SESS_LIFETIME,
+    sameSite: true,
+    secure: IN_PROD // true 'https' ou false 'http'
+  }
 }))
+
 
 /* ----------------GET AND POST REQUEST----------------- */
 app.use(bodyParser.json())
