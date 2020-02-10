@@ -33,24 +33,19 @@ class Pastille extends Component {
               <p>Piéces jointes</p>
               <div>{this.props.pastille.files}</div>
             </div>
-            {/* <div className="step">
+            <div className="step">
               <p>Etapes</p>
               <ul className="stepList">
-                {this.props.pastille.steps.map((step, i) => {
-                  return (
-                    <li key={i}>
-                      <input type="checkbox" id={step} name="etapes" />
-                      <label for="etapes">{step}</label>
-                    </li>
-                  );
-                })}
+                <li>{this.props.pastille.steps}</li>
               </ul>
-            </div> */}
+            </div>
           </div>
 
           <div className="members">
             <h2>Membres</h2>
-            <ul />
+            <ul className="userList">
+              <li>{this.props.pastille.addedUsers}</li>
+            </ul>
           </div>
         </div>
       </PageWithHeader>
