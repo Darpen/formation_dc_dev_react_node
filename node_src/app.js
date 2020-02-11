@@ -1,6 +1,6 @@
-
-
-const cors = require('cors')
+const express = require('express')
+const app = express()
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const queries = require('./queries');
@@ -19,13 +19,10 @@ app.use(cors(corsOptions))
 
 /* SESSION COOKIES */
 
-const express = require('express')
-const app = express()
 const session = require('express-session')
 const TWO_HOURS = 1000 * 60 * 60 * 2
 
 const {
-  PORT = 3000,
   NODE_ENV = 'development',
 
   SESS_SECRET = 'ssh!quiet,it\'asecret!',
@@ -43,7 +40,7 @@ app.use(session({
   cookie: {
     maxAge: SESS_LIFETIME,
     sameSite: true,
-    secure: IN_PROD // true 'https' ou false 'http'
+    secure: false // true 'https' ou false 'http'
   }
 }))
 
@@ -102,12 +99,6 @@ POST USER
 app.post('/user', async(req, res) => {
   let result = await queries.insertOne('user', req.body);
 
-  /* DELETE les elements non necessaires dans la base de données */
-  let user = req.body;
-  delete user.repeatPassword;
-  delete user.errors;
-  delete user.redirectAfterRegister;
-
   //envoi
   res.send(result)
 })
@@ -127,7 +118,11 @@ app.post('/register', async (req, res, next) => {
     if(existingUser !== null) {
       next("Ce compte existe déjà")
     } else {
-     
+      /* DELETE les elements non necessaires dans la base de données */
+      delete user.repeatPassword;
+      delete user.errors;
+      delete user.redirectAfterRegister;
+
       let insert = await queries.insertOne('user', user)
      
       res.json(insert)
@@ -147,17 +142,19 @@ app.post('/login', async (req, res, next) => {
    
     let user = req.body
     console.log("user", user)
+    console.log("session", req.session)
    
-    let existingUser = await queries.findOne('user', {mail: user.mail})
+    let existingUser = await queries.findOne('user', {email: user.email})
    
     if(existingUser !== null && existingUser.password === user.password) {
-      req.session.user = {mail: existingUser.mail, _id: existingUser._id}
+      req.session.user = {email: existingUser.email, _id: existingUser._id}
       let userToReturn = {
         _id: existingUser._id,
-        mail: existingUser.mail,
-        firstname: existingUser.firstname,
-        lastname: existingUser.lastname,
+        email: existingUser.email,
+        prenom: existingUser.prenom,
+        nom: existingUser.nom,
       }
+      console.log('session2: ', req.session)
       res.send(userToReturn)
     } else {
       next("Invalid credentials")

@@ -18,6 +18,9 @@ class Login extends Component {
       axios.post("http://localhost:3001/login", {
         email: this.state.email,
         password: this.state.password
+      },
+      {
+        withCredentials: true
       });
   }
 
