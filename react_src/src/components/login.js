@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "../css/form.css";
+import "../css/login.css";
 import axios from 'axios';
+import {Link} from "react-router-dom";
 
 class Login extends Component {
   constructor(props) {
@@ -59,6 +61,9 @@ class Login extends Component {
           />
         </label>
         <input className="loginButton" type="submit" value="SE CONNECTER" />
+        <Link to={"/register"}>
+          <input className="registerButton" type="button" value="CREER UN COMPTE"/>
+        </Link>
         {/* Affiche le message d'erreur si email ou mdp faux */}
         <div>{this.state.errorLogin}</div>
       </form>

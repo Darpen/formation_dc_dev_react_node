@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 import "../css/form.css";
 import {Redirect} from 'react-router-dom';
+import {Link} from "react-router-dom";
 
 class Register extends Component {
   constructor(props) {
@@ -151,6 +152,9 @@ class Register extends Component {
         </label>
         <span className="errors">{this.state.errors.password}</span>
         <input className="envoyer" type="submit" value="S'inscrire" />
+        <Link to={"/login"}>
+          <input className="registerButton" type="button" value="LOGIN"/>
+        </Link>
       </form>
     );
   }

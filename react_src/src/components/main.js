@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 
-import Connexion from "./connexion";
 import ToDoList from "./toDoList";
 import Admin from "./admin";
+import Login from "./login";
+import Register from "./register";
 import PageTodo from "./pageTodo";
 import axios from 'axios';
 import {Switch, Route} from 'react-router-dom';
@@ -62,11 +63,18 @@ class Main extends Component {
     return (
       <Switch>
             <Route 
-              path="/connexion" 
+              path="/login" 
               component={() => {
-                return <Connexion 
+                return <Login 
                           users={this.state.users} 
                           addUser={this.addUser} 
+                        />
+            }} />
+            <Route
+              path="/register"
+              component={() => {
+                return <Register
+                          users={this.state.users}
                         />
             }} />
             <Route 
