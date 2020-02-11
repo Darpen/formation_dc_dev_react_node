@@ -27,7 +27,6 @@ class Login extends Component {
   }
 
   render() {
-    console.log('login: ', this.props.users);
     return (
       <form
         onSubmit={e => {

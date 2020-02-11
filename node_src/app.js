@@ -26,7 +26,7 @@ const {
   NODE_ENV = 'development',
 
   SESS_SECRET = 'ssh!quiet,it\'asecret!',
-  SESS_NAME = 'sid',
+  SESS_NAME = 'log',
   SESS_LIFETIME = TWO_HOURS
 } = process.env
 
