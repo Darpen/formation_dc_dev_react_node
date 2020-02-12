@@ -54,7 +54,6 @@ class ToDoForm extends Component {
   }
 
   render() {
-    console.log('todoform', this.state);
     return (
       <form
         onSubmit={e => {

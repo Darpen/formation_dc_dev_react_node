@@ -5,12 +5,6 @@ import moon from "../images/moon.png";
 import {Link} from 'react-router-dom';
 
 class ToDoList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      pastilles: []
-    };
-  }
 
   render() {
     console.log('todolist: ', this.props.pastilles)
@@ -21,8 +15,8 @@ class ToDoList extends Component {
             {this.props.pastilles.map((tache, index) => {
               return (
                 <Link 
-                  to={"/pastille/" + tache._id} 
                   key={tache._id} 
+                  to={"/pastille/" + tache._id} 
                   className="linkto"
                 >
                   <li id={index} key={tache._id}>
