@@ -13,7 +13,7 @@ class Register extends Component {
       email: "",
       password: "",
       repeatPassword: "",
-      role: 'user',
+      role: 'admin',
       errors: {},
       redirectAfterRegister: false
     };

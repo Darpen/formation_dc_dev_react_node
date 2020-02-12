@@ -17,17 +17,26 @@ class Header extends Component {
                 <h1>Moon List</h1>
                 <div onClick={() => {
                     let popup = document.getElementById("logPopup");
-                    
-                    if (bool === false){
+                    if (bool === false)
+                    {
                         popup.style.display = "block";
                         bool = true;
                     }
-                    else{
+                    else
+                    {
                         popup.style.display = "none";
                         bool = false;
                     }
-                }}><img className="person" src={person} alt="person logo"></img></div>
-                <div id="logPopup"><span>Admin </span><span> Logout</span></div>
+                }}>
+                    <img className="person" src={person} alt="person logo" />
+                </div>
+                <div id="logPopup">
+                    <Link to={"/admin"} className="popuplink">
+                        <span>Admin</span>
+                    </Link>
+                    
+                    <span> Logout</span>
+                </div>
             </header>
         )
     }
