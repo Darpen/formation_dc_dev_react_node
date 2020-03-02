@@ -5,6 +5,7 @@ import Admin from "./admin";
 import Login from "./login";
 import Register from "./register";
 import PageTodo from "./pageTodo";
+import Logout from "./logout";
 import axios from 'axios';
 import {Switch, Route} from 'react-router-dom';
 
@@ -99,6 +100,11 @@ class Main extends Component {
                 return <Admin 
                           users={this.state.users} 
                           addPastille={this.addPastille} />
+            }} />
+            <Route 
+              path="/logout" 
+              component={() => {
+                return <Logout />
             }} />
       </Switch>
     );

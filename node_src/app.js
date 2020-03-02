@@ -155,7 +155,11 @@ app.post('/login', async (req, res, next) => {
         nom: existingUser.nom,
       }
       console.log('session2: ', req.session)
-      res.send(userToReturn)
+      /* Pour la redirection */
+      var redir = { redirect: "/todoList" };
+      res.json(redir);
+
+      res.send(userToReturn); 
     } else {
       next("Invalid credentials")
     }
@@ -164,6 +168,16 @@ app.post('/login', async (req, res, next) => {
     next(err)
   }
 })
+
+/* LOGOUT */
+app.get('/logout',(req,res) => {
+  req.session.destroy((err) => {
+      if(err) {
+          return console.log(err);
+      }
+      res.redirect('/');
+  });
+});
 
 app.listen(config.port, function () {
   console.log(`Example app listening on port ${config.port} !`)

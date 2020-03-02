@@ -34,8 +34,9 @@ class Header extends Component {
                     <Link to={"/admin"} className="popuplink">
                         <span>Admin</span>
                     </Link>
-                    
-                    <span> Logout</span>
+                    <Link to={"/logout"} className="logout">
+                        <span>Logout</span>
+                    </Link>
                 </div>
             </header>
         )

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../css/form.css";
 import "../css/login.css";
 import axios from 'axios';
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 
 class Login extends Component {
   constructor(props) {
@@ -20,10 +20,14 @@ class Login extends Component {
       axios.post("http://localhost:3001/login", {
         email: this.state.email,
         password: this.state.password
-      },
-      {
-        withCredentials: true
-      });
+      },{ withCredentials: true 
+      })
+      .then(function (response) {
+        if (response.data.redirect == '/todoList') {
+          window.location = "/todoList"
+        }
+      })
+      
   }
 
   render() {
