@@ -12,13 +12,17 @@ class Logout extends Component {
 
   componentDidMount() {
     axios.get('http://localhost:3001/logout')
-    .finally((response) => {
+    .then((response) => {
       // handle success
       console.log('logout!!!!!!!!!!!!!!!!!!!!!!!!')
       if (response.data.redirect == '/') {
         return window.location = "/login"
       }
     })
+  }
+
+  render() {
+    return 'logout page';
   }
 }
 
