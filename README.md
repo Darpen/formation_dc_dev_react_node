@@ -1,5 +1,51 @@
-Instructions d'installation
-======================
+<p align="center">
+    <img width="200" src="react_src\src\images\moon.png">
+</p>
+
+<h1 align="center">° To Do List de l'Espace °</h1>
+
+<div align="center">
+
+Projet réalisé par Benjamin Peyrat et Adrien Vaccaro - DC DEV 2 - 2020.
+
+
+[![](react_src\src\images\lkd-ben.png)](https://www.linkedin.com/in/benjamin-peyrat-4731a3174/)
+[![](react_src\src\images\lkd-ad.png)](https://www.linkedin.com/in/adrien-vaccaro/)
+
+</div>
+
+[![](react_src\src\images\vue-readme.png)]()
+
+
+## ✨ Objectifs
+
+L'objectif était de créer une application mobile utilisant la technologie MERN from scratch.
+Le sujet de l'appli est la To do List, elle permettra à un chef de projet de gerer les tâches journalieres.
+
+Nous avons mis en place:
+
+- 🌈 Une connection utilisateur => /login.
+- 📦 Une inscription => /register.
+- 🛡 Une page principale qui affiche toute les taches. => /todolist.
+- ⚙️ Une page description de la tache => /pastille/id.
+- 🌍 Une page création de tache par l'admin => /admin.
+- 🎨 Un logout qui ramene sur la page login => /logout.
+
+## 🖥 Contenu
+
+- Le formulaire d'administration de la To do List contient:
+
+  - un champ titre   => text
+  - un champ label    => select
+  - un champ Description  => textarea
+  - date de début et fin => date
+  - ajout de fichier => file
+  - ajout de plusieurs étapes possible => text
+  - affichage de tous les collaborateurs inscrits => checkbox
+
+
+
+## 📦 Instructions d'installation
 
 #Windows
 
@@ -41,11 +87,26 @@ module.exports = {
     },
     port: "3001"
 }
-```
-6. Dans le répertoire du projet lancer `sudo docker-compose up`
-7. L'appli react est disponible sur `localhost:3000` et le server node sur `localhost:3001`
+````
+
+## ⌨️ Design
+
+Nous avons utilisé Adobe Xd pour réaliser l'ensemble du Design.
+
+<p align="left">
+<a href="https://xd.adobe.com/view/5d6f2e10-05d9-4215-66e2-18bb4af23700-2b5e/?fullscreen">
+    <img width="50" src="https://cdn.freebiesupply.com/logos/large/2x/adobe-xd-logo-png-transparent.png">
+</a>
+</p>
 
 
+## 🔗 Links
+
+- [AdVac](https://advac.fr/)
 
 
+## 🤝 Remerciements
 
+Merci à notre coach [César](https://www.linkedin.com/in/cesarfraisseix/) pour sa pédagogie et ses bons conseils.
+
+Ben & Ad
