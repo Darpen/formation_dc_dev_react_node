@@ -43,6 +43,10 @@ Nous allons donc mettre en place:
   - ajout de plusieurs étapes possible => text
   - affichage de tous les collaborateurs inscrits, ajout du collaborateur à la tâche en le cochant => checkbox
 
+## 🖥 Le reste à faire
+
+- Les redirections lors du login, register et logout
+- Une utilisation plus poussée du COOKIE SESSION
 
 
 ## 📦 Instructions d'installation
