@@ -8,7 +8,7 @@
 
 Projet réalisé par Benjamin Peyrat et Adrien Vaccaro - DC DEV 2 - 2020.
 
-<p>Linkedin</p>
+<span>Linkedin: </span>
 <a href="https://www.linkedin.com/in/benjamin-peyrat-4731a3174/">Benjamin</a>
 <span>/</span>
 <a href="https://www.linkedin.com/in/adrien-vaccaro/">Adrien</a>
