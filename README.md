@@ -8,16 +8,13 @@
 
 Projet réalisé par Benjamin Peyrat et Adrien Vaccaro - DC DEV 2 - 2020.
 
-<a href="https://www.linkedin.com/in/benjamin-peyrat-4731a3174/">
-    Linkedin Benjamin
-</a>
-<a href="https://www.linkedin.com/in/adrien-vaccaro/">
-    Linkedin Adrien
-</a>
+<p>Linkedin</p>
+<a href="https://www.linkedin.com/in/benjamin-peyrat-4731a3174/">Benjamin</a>
+<a href="https://www.linkedin.com/in/adrien-vaccaro/">Adrien</a>
 
 </div>
 
-<div align="center"><img width="200" src="react_src\src\images\vue-readme.png"></div>
+<div align="center"><img width="400" src="react_src\src\images\vue-readme.png"></div>
 
 ## ✨ Objectifs
 
