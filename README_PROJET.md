@@ -8,7 +8,7 @@ L'objectif est de créer une application mobile utilisant la technologie MERN fr
 
 Le sujet de l'appli est la To do List, elle permettra à un chef de projet de gerer les tâches journalieres.
 
-Nous avons mis en place:
+Nous allons donc mettre en place:
 
     - Une connection utilisateur => /login
     - Une inscription => /register

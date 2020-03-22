@@ -22,7 +22,7 @@ Projet réalisé par Benjamin Peyrat et Adrien Vaccaro - DC DEV 2 - 2020.
 L'objectif était de créer une application mobile utilisant la technologie MERN from scratch.
 Le sujet de l'appli est la To do List, elle permettra à un chef de projet de gerer les tâches journalieres.
 
-Nous avons mis en place:
+Nous allons donc mettre en place:
 
 - 🌈 Une connection utilisateur => /login.
 - 📦 Une inscription => /register.
@@ -35,13 +35,13 @@ Nous avons mis en place:
 
 - Le formulaire d'administration de la To do List contient:
 
-  - un champ titre   => text
-  - un champ label    => select
-  - un champ Description  => textarea
+  - un champ titre => text
+  - un champ label  => select
+  - un champ Description => textarea
   - date de début et fin => date
   - ajout de fichier => file
   - ajout de plusieurs étapes possible => text
-  - affichage de tous les collaborateurs inscrits => checkbox
+  - affichage de tous les collaborateurs inscrits, ajout du collaborateur à la tâche en le cochant => checkbox
 
 
 
