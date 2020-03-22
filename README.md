@@ -14,7 +14,7 @@ Projet réalisé par Benjamin Peyrat et Adrien Vaccaro - DC DEV 2 - 2020.
 
 </div>
 
-[![](react_src\src\images\vue-readme.png)]()
+[![](react_src\src\images\vue-readme.png)](/)
 
 
 ## ✨ Objectifs
