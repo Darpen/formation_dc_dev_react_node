@@ -12,13 +12,12 @@ Projet réalisé par Benjamin Peyrat et Adrien Vaccaro - DC DEV 2 - 2020.
     Linkedin Benjamin
 </a>
 <a href="https://www.linkedin.com/in/adrien-vaccaro/">
-    <img width="200" src=react_src\src\images\lkd-ad.png>
+    Linkedin Adrien
 </a>
 
-<img width="200" src="react_src\src\images\vue-readme.png">
 </div>
 
-
+<div align="center"><img width="200" src="react_src\src\images\vue-readme.png"></div>
 
 ## ✨ Objectifs
 
