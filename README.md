@@ -15,9 +15,9 @@ Projet réalisé par Benjamin Peyrat et Adrien Vaccaro - DC DEV 2 - 2020.
     <img width="200" src=react_src\src\images\lkd-ad.png>
 </a>
 
+<img width="200" src="react_src\src\images\vue-readme.png">
 </div>
 
-<img width="200" src="react_src\src\images\vue-readme.png">
 
 
 ## ✨ Objectifs
