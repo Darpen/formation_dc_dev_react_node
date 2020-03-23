@@ -2,7 +2,8 @@
     <img width="200" src="react_src\src\images\moon.png">
 </p>
 
-<h1 align="center">° To Do List de l'Espace °</h1>
+<h1 align="center" color="gold">° To Do List de l'Espace °</h1>
+<h2 align="center">React Js & Node Js</h2>
 
 <div align="center">
 
@@ -22,11 +23,11 @@ Projet réalisé par Benjamin Peyrat et Adrien Vaccaro - DC DEV 2 - 2020.
 L'objectif était de créer une application mobile utilisant la technologie MERN from scratch.
 Le sujet de l'appli est la To do List, elle permettra à un chef de projet de gerer les tâches journalieres.
 
-Nous allons donc mettre en place:
+Nous avons donc mis en place:
 
 - 🌈 Une connection utilisateur => /login.
 - 📦 Une inscription => /register.
-- 🛡 Une page principale qui affiche toute les taches. => /todolist.
+- 🛡 Une page principale qui affiche toutes les taches. => /todolist.
 - ⚙️ Une page description de la tache => /pastille/id.
 - 🌍 Une page création de tache par l'admin => /admin.
 - 🎨 Un logout qui ramene sur la page login => /logout.
