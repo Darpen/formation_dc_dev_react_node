@@ -15,7 +15,7 @@ Projet réalisé par Benjamin Peyrat et Adrien Vaccaro - DC DEV 2 - 2020.
 
 </div>
 
-<div align="center"><img width="400" src="react_src\src\images\vue-readme.png"></div>
+<div align="center"><img width="600" src="react_src\src\images\vue-readme.png"></div>
 
 ## ✨ Objectifs
 
